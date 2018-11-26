@@ -3,12 +3,17 @@
     <div class="col-sm-8 col-sm-offset-2">
       <h1>Movies Planner</h1>
       <%= form_tag movies_path, method: :get do %>
-        <%= text_field_tag :query,
-          params[:query],
-          class: "form-control",
-          placeholder: "Find a movie"
-        %>
+        <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Find a movie" %>
       <% end %>
+
+
+
+      <%= link_to movies_path(query: "superman"), method: :get do %>
+        <i class="fas fa-utensils"></i>
+      <% end %>
+
+
+
       <div id="movies">
         <% @movies.each do |movie| %>
           <h4><%= movie.class == Movie ? movie.title : movie.searchable_type %></h4>
